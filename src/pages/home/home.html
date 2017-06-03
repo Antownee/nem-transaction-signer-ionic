@@ -1,0 +1,40 @@
+<ion-header color="primary">
+    <ion-navbar>
+        <ion-title>
+            Sign Transaction
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+
+        <ion-item>
+            <ion-label floating>NEM Addresss</ion-label>
+            <ion-input type="text" [value]="nemAddress" (input)=validateAddress($event.target.value)></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Amount</ion-label>
+            <ion-input type="number" default="0" (input)=updateAmount($event.target.value)></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Private Key</ion-label>
+            <ion-input type="password" [value]="nemPrivatekey" id="prvKey" (input)=updatePrvKey($event.target.value)></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Message</ion-label>
+            <ion-input type="text" (input)=updateMessage($event.target.value)></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-badge large item-right color="secondary">FEE: {{nemFee}} NEM</ion-badge>
+        </ion-item>
+
+
+        <button ion-button large block color="secondary" [disabled]="!(addressvalid && amountValid)" (click)="openModal()">SIGN TRANSACTION</button>
+
+    </ion-list>
+</ion-content>
