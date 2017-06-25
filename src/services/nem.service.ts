@@ -1,4 +1,9 @@
 import nem from 'nem-sdk';
+import CryptoJS from 'crypto-js';
+
+const convert = nem.utils.convert;
+const CryptoHelpers = nem.crypto.helpers;
+
 
 export class NemService {
     nemAmount: number;
@@ -46,6 +51,31 @@ export class NemService {
         this.nemFee = nem.utils.format.nemValue(transactionEntity.fee)[0] + "." + nem.utils.format.nemValue(transactionEntity.fee)[1];
         return true;
     }
+
+
+    decryptWalllet(walletinfo, password) {
+        return new Promise((resolve, reject) => {
+            let salt = CryptoJS.enc.Hex.parse(walletinfo.salt);
+            let encrypted = walletinfo.priv_key;
+
+            let key = CryptoJS.PBKDF2(password, salt, {
+                keySize: 256 / 32,
+                iterations: 2000
+            }).toString();
+
+            let iv = encrypted.substring(0, 32);
+            let encryptedPrvKey = encrypted.substring(32, 128);
+
+            let obj = {
+                ciphertext: CryptoJS.enc.Hex.parse(encryptedPrvKey),
+                iv: convert.hex2ua(iv),
+                key: convert.hex2ua(key.toString())
+            }
+            resolve(CryptoHelpers.decrypt(obj));
+
+        })
+    }
+
 
     signTransaction() {
 

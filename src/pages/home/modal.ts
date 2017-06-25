@@ -14,7 +14,6 @@ export class ModalContentPage{
         this.qrdata = this.params.get('qrData');
     }
     
-
     dismiss(){
         this.viewCtrl.dismiss();    
     }

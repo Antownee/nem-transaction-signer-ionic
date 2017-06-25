@@ -9,11 +9,14 @@ import { HomePage } from '../pages/home/home';
 import { NemService } from "../services/nem.service";
 import { ModalContentPage } from "../pages/home/modal";
 import { QRCodeModule } from 'angular2-qrcode';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner'
+import { StartPage } from "../pages/start/start";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
+    StartPage,
     ModalContentPage,
   ],
   imports: [
@@ -25,13 +28,15 @@ import { QRCodeModule } from 'angular2-qrcode';
   entryComponents: [
     MyApp,
     HomePage,
+    StartPage,
     ModalContentPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    NemService
+    NemService,
+    BarcodeScanner
   ],
   
 })
