@@ -7,9 +7,9 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-list>
+    <ion-list padding>
 
-        <button ion-button large block color="secondary" (click)="scan()">SCAN INVOICE</button>
+        <button ion-button customBtn large block color="secondary" (click)="scan()">SCAN INVOICE</button>
 
         <ion-item>
             <ion-label floating>NEM Addresss</ion-label>
@@ -38,6 +38,5 @@
 
         <button ion-button large block color="secondary" [disabled]="!(addressvalid && amountValid)" (click)="openModal()">SIGN TRANSACTION</button>
 
-        <button ion-button large block color="secondary" (click)="decrypt()">SCAN INVOICE</button>
     </ion-list>
 </ion-content>

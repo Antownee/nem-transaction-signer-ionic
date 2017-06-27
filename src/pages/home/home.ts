@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, ModalController,NavParams  } from 'ionic-angular';
+import { NavController, AlertController, ModalController, NavParams } from 'ionic-angular';
 import { NemService } from "../../services/nem.service";
 import { ModalContentPage } from "./modal";
 import { BarcodeScanner } from '@ionic-native/barcode-scanner'
@@ -29,9 +29,9 @@ export class HomePage {
     private barcodeScnr: BarcodeScanner,
     public navParams: NavParams) {
 
-      this.nemPrivatekey = this.navParams.get('prvKey');
-      this.updatePrvKey(this.nemPrivatekey);
-    
+    this.nemPrivatekey = this.navParams.get('prvKey');
+    this.updatePrvKey(this.nemPrivatekey);
+
     //this.devfn();
 
   }
@@ -40,7 +40,7 @@ export class HomePage {
     this.addressvalid = false;
     this.amountValid = false;
 
-    // this.nemAddress = "TCOOUX72R5C3XK5NK2NQOIQOUZFYA6I5CSZ7HKDP";
+    this.nemAddress = "TCOOUX72R5C3XK5NK2NQOIQOUZFYA6I5CSZ7HKDP";
     this.nemPrivatekey = "d62cc1d91267734f2a9c583cab70b0c922a110188a9243a12e8b9c7d5bf85d4c";
     this.updatePrvKey(this.nemPrivatekey);
   }
@@ -102,11 +102,6 @@ export class HomePage {
   updatePrvKey(prvKey) {
     this.nemService.nemPrivatekey = prvKey;
   }
-
-  decrypt(){
-    console.log("decrypt..")
-  }
-
 
   openModal() {
     //Before signing, check private key field has something

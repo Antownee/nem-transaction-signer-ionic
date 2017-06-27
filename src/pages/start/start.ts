@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { HomePage } from '../home/home';
 import { NemService } from "../../services/nem.service";
-import async from 'async';
+
 
 @IonicPage()
 @Component({
@@ -38,6 +38,7 @@ export class StartPage {
         if (bd.format !== "QR_CODE") {
           return this.showAlert("Error", "Invalid QR code.");
         }
+
         //Scan qr code then move to second page with them details
         let info = JSON.parse(bd.text).data;
 

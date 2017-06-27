@@ -3,7 +3,7 @@
     <name>Transaction Signer</name>
     <description>An offline NEM transaction signer</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Anthony Muisyo</author>
-    <content original-src="index.html" src="http://192.168.86.2:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="http://ionic.local/*" />
     <allow-navigation href="http://[object Object]:8100" />
@@ -25,7 +25,7 @@
     <preference name="FadeSplashScreenDuration" value="300" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <preference name="SplashScreen" value="screen" />
-    <preference name="SplashScreenDelay" value="3000" />
+    <preference name="SplashScreenDelay" value="2000" />
     <platform name="android">
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
