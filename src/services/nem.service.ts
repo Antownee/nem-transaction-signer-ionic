@@ -45,7 +45,7 @@ export class NemService {
         this.transferTransaction.message = this.nemMessage;
 
         var transactionEntity = nem.model.transactions.prepare("transferTransaction")
-            (this.common, this.transferTransaction, nem.model.network.data.testnet.id);
+            (this.common, this.transferTransaction, nem.model.network.data.mainnet.id);
 
         // Format fee returned in prepared object
         this.nemFee = nem.utils.format.nemValue(transactionEntity.fee)[0] + "." + nem.utils.format.nemValue(transactionEntity.fee)[1];
@@ -105,7 +105,7 @@ export class NemService {
         this.transferTransaction.message = this.nemMessage;
 
         // Prepare the updated transfer transaction object
-        var transactionEntity = nem.model.transactions.prepare("transferTransaction")(this.common, this.transferTransaction, nem.model.network.data.testnet.id);
+        var transactionEntity = nem.model.transactions.prepare("transferTransaction")(this.common, this.transferTransaction, nem.model.network.data.mainnet.id);
 
         // Create a key pair object from private key
         var kp = nem.crypto.keyPair.create(this.common.privateKey);
